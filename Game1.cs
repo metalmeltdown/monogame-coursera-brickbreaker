@@ -9,6 +9,8 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
+    private Paddle paddle;
+
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -30,8 +32,10 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        paddle = new Paddle(this);
+        paddle.LoadContent();
+        paddle.position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50);  
 
-        // TODO: use this.Content to load your game content here
     }
 
     protected override void Update(GameTime gameTime)
@@ -48,6 +52,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.Green);
         _spriteBatch.Begin();
+        paddle.Draw(_spriteBatch);
 
         _spriteBatch.End();
 

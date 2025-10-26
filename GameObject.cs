@@ -4,17 +4,39 @@ using Microsoft.Xna.Framework.Content;
 
 namespace BrickBreaker
 {
-    public class GameObject
+    public abstract class GameObject
     {
-        protected string TextureName;
-        protected Texture2D Texture;
-        protected Vector2 Position;
-        protected Game1 game1;
+        protected string textureName;
+        protected Texture2D texture;
+        public Vector2 position;
+        protected Game game;
 
         // constructor
-        public GameObject()
+        public GameObject(Game mygame)
         {
-            Position = Vector2.Zero;
+            this.game = mygame;
+            position = Vector2.Zero;
+        }
+        public virtual void LoadContent()
+        {
+            if (!string.IsNullOrEmpty(textureName))
+            {
+                texture = game.Content.Load<Texture2D>(textureName);
+            }
+        }
+        public virtual void Update(GameTime gameTime)
+        {
+            // Default update logic (if any)
+        }
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            if (texture != null)
+            {
+                Vector2 drawPosition = position;
+                drawPosition.X -= texture.Width / 2;
+                drawPosition.Y -= texture.Height / 2;
+                spriteBatch.Draw(texture, drawPosition, Color.White);
+            }
         }
     }
 }
