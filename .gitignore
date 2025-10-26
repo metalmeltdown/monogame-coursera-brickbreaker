@@ -1,0 +1,71 @@
+# ════════════════════════════════════════════════
+# MonoGame + .NET + Linux
+# ════════════════════════════════════════════════
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+
+# Compiled content (XNB files - se regeneran)
+Content/bin/
+Content/obj/
+
+# Visual Studio / Rider
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.pidb
+
+# MonoGame específico
+*.mgcb.cache
+*.cachefile
+*.mgcb.log
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+
+# ════════════════════════════════════════════════
+# EXCEPCIONES (archivos que SÍ quieres subir)
+# ════════════════════════════════════════════════
+
+# Content Pipeline (estos SÍ se suben)
+!Content/Content.mgcb
+!Content/**/*.png
+!Content/**/*.jpg
+!Content/**/*.wav
+!Content/**/*.mp3
+!Content/**/*.spritefont
+!Content/**/*.fx
+
+# Project files (estos SÍ se suben)
+!*.csproj
+!*.sln
