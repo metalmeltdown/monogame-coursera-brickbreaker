@@ -14,16 +14,15 @@ Classic Arkanoid/Breakout clone built with MonoGame as part of the Coursera Game
 
 ## How to Run
 ### Clone the repository
-´´´
+```bash
 git clone https://github.com/metalmeltdown/monogame-coursera-brickbreaker.git
 cd monogame-coursera-brickbreaker
+```
 
-´´´
 ### Run the game
-´´´
+```bash
 dotnet run
-
-´´´
+```
 ## Resources
 - [MonoGame Docs](https://docs.monogame.net/)
 - [Coursera Specialization](https://www.coursera.org/specializations/game-development-with-monogame-specialization)
