@@ -14,6 +14,10 @@ public class Game1 : Game
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
+
+        _graphics.PreferredBackBufferWidth = 1024;
+        _graphics.PreferredBackBufferHeight = 768;
+        
     }
 
     protected override void Initialize()
@@ -42,9 +46,10 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(Color.Green);
+        _spriteBatch.Begin();
 
-        // TODO: Add your drawing code here
+        _spriteBatch.End();
 
         base.Draw(gameTime);
     }
