@@ -7,7 +7,7 @@ namespace BrickBreaker
     public abstract class GameObject
     {
         protected string textureName;
-        protected Texture2D texture;
+        public Texture2D texture;
         public Vector2 position;
         protected Game game;
 
@@ -24,7 +24,7 @@ namespace BrickBreaker
                 texture = game.Content.Load<Texture2D>(textureName);
             }
         }
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(float deltaTime)
         {
             // Default update logic (if any)
         }
