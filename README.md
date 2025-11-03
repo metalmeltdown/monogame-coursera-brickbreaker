@@ -6,7 +6,7 @@ Classic Arkanoid/Breakout clone built with MonoGame as part of the Coursera Game
 
 - [x] Project setup with GameObject base class
 - [x] Resolution configuration (1024x768)
-- [ ] Paddle with keyboard controls
+- [x] Paddle with keyboard controls
 - [ ] Ball physics and movement
 - [ ] Brick collision detection
 - [ ] Score system
