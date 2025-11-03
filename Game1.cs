@@ -10,6 +10,7 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
 
     private Paddle paddle;
+    private Ball ball;
 
     public Game1()
     {
@@ -34,8 +35,11 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         paddle = new Paddle(this);
         paddle.LoadContent();
-        paddle.position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50);  
+        paddle.position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height - 50);
 
+        ball = new Ball(this);
+        ball.LoadContent();
+        ball.position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
     }
 
     protected override void Update(GameTime gameTime)
@@ -52,6 +56,7 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.Green);
         _spriteBatch.Begin();
         paddle.Draw(_spriteBatch);
+        ball.Draw(_spriteBatch);
 
         _spriteBatch.End();
 
