@@ -54,8 +54,6 @@ namespace BrickBreaker
             }
             else if (position.Y > screenHeight - radius)
             {
-                // position.Y = screenHeight - radius;
-                // velocity.Y *= -1;
                 ResetBall();
             }
         }
