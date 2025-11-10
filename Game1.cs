@@ -47,6 +47,7 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
         paddle.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+        ball.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
  
         base.Update(gameTime);
     }
@@ -62,4 +63,6 @@ public class Game1 : Game
 
         base.Draw(gameTime);
     }
+
+
 }
