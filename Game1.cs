@@ -48,7 +48,9 @@ public class Game1 : Game
             Exit();
         paddle.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
         ball.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
- 
+        ball.CheckPaddleCollision(paddle);
+        ball.CheckWallCollision();
+
         base.Update(gameTime);
     }
 

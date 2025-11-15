@@ -8,8 +8,8 @@ namespace BrickBreaker
     public class Ball : GameObject
     {
         public Vector2 velocity;
-        private float speed = 30f;
-
+        private float speed = 300f;
+        private float radius => texture.Width / 2f;
         public Ball(Game mygame) : base(mygame)
         {
             textureName = "ball";
@@ -17,23 +17,19 @@ namespace BrickBreaker
             direction.Normalize(); // ← Importante: normalizar a longitud 1
             velocity = direction * speed;
         }
-        public override void Update(float deltaTime)
+        public void Update(float deltaTime)
         {
             // Física: posición += velocidad × tiempo
 
-            position += velocity * speed * deltaTime;
-
-            checkCollision();
+            position += velocity * deltaTime;
 
             base.Update(deltaTime);
         }
-        protected void checkCollision()
+        public void CheckWallCollision()
         {
             // tamanio de pantalla
             int screenWidth = game.GraphicsDevice.Viewport.Width;
             int screenHeight = game.GraphicsDevice.Viewport.Height;
-
-            float radius = texture.Width / 2f;
 
             // colision con paredes
             if (position.X < radius)
@@ -57,6 +53,29 @@ namespace BrickBreaker
                 ResetBall();
             }
         }
+        public void CheckPaddleCollision(Paddle paddle)
+        {
+            // colision con paddle
+            Rectangle paddleRect = new Rectangle(
+                (int) (paddle.position.X - paddle.texture.Width / 2),  // centro X - mitad del ancho = esquina izquierda
+                (int) (paddle.position.Y - paddle.texture.Height / 2), // centro Y - mitad del alto = esquina superior
+                paddle.texture.Width,   // ancho del paddle
+                paddle.texture.Height   // alto del paddle
+            );
+            Rectangle ballRect = new Rectangle(
+                (int)(position.X - radius),
+                (int)(position.Y - radius),
+                (int)(radius * 2),
+                (int)(radius * 2)
+            );
+
+            if (ballRect.Intersects(paddleRect))
+            {
+                velocity.Y *= -1;
+                position.Y = paddleRect.Top - radius;
+            }
+        }
+
         protected void ResetBall()
         {
             position = new Vector2(game.GraphicsDevice.Viewport.Width / 2, game.GraphicsDevice.Viewport.Height / 2);
