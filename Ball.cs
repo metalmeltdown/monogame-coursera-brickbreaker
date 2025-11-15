@@ -17,7 +17,7 @@ namespace BrickBreaker
             direction.Normalize(); // ← Importante: normalizar a longitud 1
             velocity = direction * speed;
         }
-        public void Update(float deltaTime)
+        public override void Update(float deltaTime)
         {
             // Física: posición += velocidad × tiempo
 
